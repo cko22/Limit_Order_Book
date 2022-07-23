@@ -5,7 +5,7 @@ An order matching engine is at the core of an exchange. All incoming limit order
 
 The objectives of this project are:
 - To build a limit order book
-- To build an efficient price/time matching engine
+- To build an efficient price/time matching engine using STL containers
 
 # References
 1. https://www.oxford-man.ox.ac.uk/projects/market-simulator/
