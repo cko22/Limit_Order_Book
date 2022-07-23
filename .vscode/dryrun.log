@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/chunkiat/Documents/C++/Limit_order_book'
+make: Leaving directory `/Users/chunkiat/Documents/C++/Limit_order_book'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
