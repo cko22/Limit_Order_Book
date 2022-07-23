@@ -154,7 +154,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
             int bookSize = bid.size();
             std::set<Order>::iterator it = bid.begin(); 
             int requiredOrderSize = pendingOrder.orderSize;
-            cout << "************" << endl;
+            cout << "********************************" << endl;
             cout << "Market Order " << pendingOrder.orderID << ":" << endl; 
             while (it!= bid.end()){
                 Order newOrder; 
@@ -188,7 +188,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
                     it = bid.begin(); // reset iterator to start from the beginning, if the book is empty, this will cause the while loop to stop
                 }
             }
-            cout << "************" << endl;
+            cout << "********************************" << endl;
         }
         // }else if (pendingBuyOrder.size() != 0 && newOrder.orderType == "ask" && ask.size() != 0 ){
         while (pendingBuyOrder.size() != 0 && newOrder.orderType == "ask" && ask.size() != 0 ){
@@ -196,7 +196,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
             int bookSize = ask.size();
             std::set<Order>::iterator it = ask.begin(); 
             int requiredOrderSize = pendingOrder.orderSize;
-            cout << "************" << endl;
+            cout << "********************************" << endl;
             cout << "Market Order " << pendingOrder.orderID << ":" << endl; 
             while (it!= ask.end()){
                 Order newOrder; 
@@ -230,7 +230,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
                     it = ask.begin(); // reset iterator to start from the beginning, if the book is empty, this will cause the while loop to stop
                 }
             }
-            cout << "************" << endl;
+            cout << "********************************" << endl;
         }
 
     }else if (firstChar == 'C'){
@@ -269,7 +269,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
         cancelOrder.orderSize = std::stoi(entries.at(3))/100;
         cancelOrder.price = std::stod(entries.at(4));
 
-        cout << "*****************" << endl;
+        cout << "***********************************************" << endl;
         // Remove order to be cancelled
         if (cancelOrder.orderType == "bid"){
             auto search = bid.find(cancelOrder);
@@ -289,7 +289,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
                 std::cerr << "Error: Could not cancel order. Order not found!" << endl;
             }
         }
-        cout << "*****************" << endl;
+        cout << "***********************************************" << endl;
 
     }else if (firstChar == 'M'){
         // Market order
@@ -340,7 +340,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
 
             bookSize = bid.size();
             it = bid.begin(); 
-            cout << "************" << endl;
+            cout << "********************************" << endl;
             cout << "Market Order " << marketOrder.orderID << ":" << endl; 
             while (it!= bid.end()){
                 Order newOrder; 
@@ -371,7 +371,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
                     it = bid.begin(); // reset iterator to start from the beginning, if the book is empty, this will cause the while loop to stop
                 }
             }
-            cout << "************" << endl;
+            cout << "********************************" << endl;
             // If market order is partially filled and the book is empty, modify it and store in pending order queue
             if (requiredOrderSize != 0 && bid.size() == 0){
                 Order newMarketOrder;
@@ -391,7 +391,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
 
             bookSize = ask.size();
             it = ask.begin(); 
-            cout << "************" << endl;
+            cout << "********************************" << endl;
             cout << "Market Order " << marketOrder.orderID << ":" << endl; 
             while (it!= ask.end()){
                 Order newOrder; 
@@ -422,7 +422,7 @@ void OrderBook::matchingEngine(std::string orderMessage){
                     it = ask.begin(); // reset iterator to start from the beginning, if the book is empty, this will cause the while loop to stop
                 }
             }
-            cout << "************" << endl;
+            cout << "********************************" << endl;
             // If market order is partially filled and the book is empty, modify it and store in pending order queue
             if (requiredOrderSize != 0 && ask.size() == 0){
                 Order newMarketOrder;
@@ -436,9 +436,9 @@ void OrderBook::matchingEngine(std::string orderMessage){
         }
         
     }else {
-        cout << "**********" << endl;
+        cout << "****************************" << endl;
         std::cerr << "Error: Unknown order message" << endl;
-        cout << "**********" << endl;
+        cout << "****************************" << endl;
     }
     return; 
 }
